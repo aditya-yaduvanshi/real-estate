@@ -1,0 +1,79 @@
+.card {
+  padding: 2rem 1.5rem;
+  border: 0.1rem solid $color-grey;
+  border-radius: 0.5rem;
+  background-color: $color-white;
+  max-width: 35rem;
+  box-shadow: 0 0.2rem 0.2rem rgba($color: #000000, $alpha: 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0.5rem 1rem 0.5rem rgba($color: #000000, $alpha: 0.5);
+  }
+
+  &__header {
+    width: 100%;
+    border-radius: 0.3rem;
+
+    &__photo {
+      width: 100%;
+      border-radius: 0.3rem;
+    }
+  }
+
+  &__title {
+    color: $color-primary;
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__location {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: $color-dark;
+  }
+
+  &__info {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__saletype {
+    font-size: 1.6rem;
+    color: $color-white;
+    background-color: $color-success;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    border-radius: 0.3rem;
+  }
+
+  &__hometype {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__link {
+    font-size: 2rem;
+    color: $color-primary;
+    padding: 1rem 1.5rem;
+    border: 0.1rem solid $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary;
+    }
+  }
+
+  &__sqft {
+    font-size: 1.5rem;
+    color: $color-dark;
+  }
+
+  &__special {
+    color: $color-primary;
+  }
+}
