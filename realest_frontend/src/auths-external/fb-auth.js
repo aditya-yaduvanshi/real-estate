@@ -1,6 +1,6 @@
 // client id 6590743080951651
 import FacebookLogin from 'react-facebook-login';
-import fbLogo from '../assets/fb-sq.png';
+import fbLogo from '../assets/images/fb-sq.png';
  
 
 const FbAuth = () => {

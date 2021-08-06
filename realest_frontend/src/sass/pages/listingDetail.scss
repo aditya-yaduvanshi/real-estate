@@ -1,0 +1,86 @@
+.listingdetail {
+  padding-bottom: 5rem;
+
+  .row {
+    background-color: $color-white;
+    padding: 2rem;
+  }
+
+  &__header {
+    background-color: rgba($color-primary, 0.5);
+    padding: 4rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 4.2rem;
+    color: $color-white;
+    margin-bottom: 2rem;
+    font-weight: 200;
+  }
+
+  &__location {
+    font-size: 4.2rem;
+    color: $color-white;
+    font-weight: 200;
+  }
+
+  &__breadcrumb {
+    font-size: 1.6rem;
+    padding: 2rem 4rem;
+    background-color: $color-grey;
+    margin-top: 2rem;
+
+    &__link {
+      color: $color-primary;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-primary-hover;
+      }
+    }
+  }
+
+  &__display {
+    width: 100%;
+
+    &__image {
+      width: 100%;
+    }
+  }
+
+  &__realtor {
+    color: $color-primary;
+    font-size: 2.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__contact {
+    color: $color-success;
+    font-size: 1.6rem;
+  }
+
+  &__about {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+  }
+
+  &__list {
+    list-style: none;
+    color: $color-primary;
+    font-size: 1.6rem;
+
+    &__item {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__description {
+    font-size: 1.6rem;
+    border: 1px solid $color-dark;
+    padding: 1rem;
+    background-color: $color-white;
+  }
+
+}

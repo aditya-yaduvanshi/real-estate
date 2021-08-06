@@ -35,7 +35,7 @@ const Pagination = (props) => {
   }
   return (
     <div className="pagination">
-      <div className="pagination__label">Pages </div>
+      <div className="pagination__label">Pages</div>
       { getNumbers().length > 1 && (
         <div className="pagination__number" onClick={()=>props.previous()}>Previous</div>
       ) }

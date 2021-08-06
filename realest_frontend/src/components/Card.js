@@ -10,7 +10,7 @@ const Card = (props) => {
     <div className="card">
       <h3 className="card__title">{props.title}</h3>
       <div className="card__header">
-        <img className="card__header__photo" src={`http://localhost:8000${props.main_photo}`} alt={props.home_type} />
+        <img className="card__header__photo" src={props.main_photo} alt={props.home_type} />
       </div>
       <p className="card__location">
         {props.address}, {props.city}, {props.state}
@@ -24,7 +24,7 @@ const Card = (props) => {
             Bedrooms: <span className="card__special">{props.bedrooms} BHK</span>
           </p>
           <p className="card__info">
-            Bathrooms: <span className="card__special">{props.bedrooms} FH</span>
+            Bathrooms: <span className="card__special">{props.bathrooms} FH</span>
           </p>
         </div>
         <div className="col-1-of-3">

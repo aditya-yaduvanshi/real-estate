@@ -19,21 +19,3 @@ body {
   font-family: bebas-neue, sans-serif;
   background: $color-background;
 }
-::selection {
-  background-color: rgba($color-primary, 0.3);
-}
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  border: 1px solid #d5d5d5;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background: #eeeeee;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: $color-primary;
-}

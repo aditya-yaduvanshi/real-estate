@@ -10,8 +10,8 @@ const ListingForm = (props) => {
     bedrooms: 0,
     home_type: 'House',
     bathrooms: 0.0,
-    sqft: 1000,
-    days_listed: 20,
+    sqft: 'Any',
+    days_listed: 'Any',
     has_photos: 1,
     open_house: 'false',
     keywords: ''
@@ -29,13 +29,13 @@ const ListingForm = (props) => {
     setLoading(true)
     axios.post('http://localhost:8000/api/listings/search', JSON.stringify({
       sale_type,
-      price: parseInt(price),
-      bedrooms: parseInt(bedrooms),
+      price: price,
+      bedrooms: bedrooms,
       home_type,
-      bathrooms: parseFloat(bathrooms),
-      sqft: parseInt(sqft),
-      days_listed: parseInt(days_listed),
-      has_photos: parseInt(has_photos),
+      bathrooms: bathrooms,
+      sqft: sqft,
+      days_listed: days_listed,
+      has_photos: has_photos,
       open_house,
       keywords
     })).then(res => {
@@ -88,11 +88,11 @@ const ListingForm = (props) => {
           <div className="listingform__section">
             <label className="listingform__label" htmlFor="sqft">Square Feet</label>
             <select className="listingform__select" name="sqft" onChange={event => handleChange(event)} value={sqft}>
-              <option value="1000" defaultValue>1000+</option>
+              <option value="1000">1000+</option>
               <option value="1200">1200+</option>
               <option value="1500">1500+</option>
               <option value="2000">2000+</option>
-              <option>Any</option>
+              <option defaultValue>Any</option>
             </select>
           </div>
 
@@ -121,8 +121,8 @@ const ListingForm = (props) => {
               <option value="2">2 or less</option>
               <option value="5">5 or less</option>
               <option value="10">10 or less</option>
-              <option value="20" defaultValue>20 or less</option>
-              <option >Any</option>
+              <option value="20">20 or less</option>
+              <option defaultValue>Any</option>
             </select>
           </div>
 
@@ -133,7 +133,7 @@ const ListingForm = (props) => {
           <div className="listingform__section">
             <label className="listingform__label" htmlFor="bedrooms">Bedrooms</label>
             <select className="listingform__select" name="bedrooms" onChange={event => handleChange(event)} value={bedrooms}>
-              <option value="0" defaultValue>No Bedrooms</option>
+              <option value="0" defaultValue>0 or more</option>
               <option value="1">1 or more</option>
               <option value="2">2 or more</option>
               <option value="3">3 or more</option>

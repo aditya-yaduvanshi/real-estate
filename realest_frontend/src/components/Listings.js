@@ -10,7 +10,7 @@ const Listings = ({listings}) => {
       return listingsOnPage.push(
         <Card 
           title={listing.title}
-          main_photo={listing.main_photo}
+          main_photo={`http://localhost:8000${listing.main_photo}`}
           home_type={listing.home_type}
           sale_type={listing.sale_type}
           sqft={listing.sqft}

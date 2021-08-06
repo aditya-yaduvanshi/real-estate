@@ -49,24 +49,26 @@ class SearchView(APIView):
       queryset = queryset.filter(sqft__gte=sqft)
     
     days_passed = data['days_listed']
-    for query in queryset:
-      num_days = (datetime.now(timezone.utc) - query.list_date).days
+    if days_passed != 'Any':
+      for query in queryset:
+        num_days = (datetime.now(timezone.utc) - query.list_date).days
 
-      if days_passed != 0:
-        if num_days > days_passed:
-          slug = query.slug
-          queryset = queryset.exclude(slug__iexact=slug)
+        if days_passed != 0:
+          if num_days > int(days_passed):
+            slug = query.slug
+            queryset = queryset.exclude(slug__iexact=slug)
 
     has_photos = data['has_photos']
-    count = 0
-    for query in queryset:
-      if query.main_photo:
-        count += 1
-      if query.photos:
-        count = count + query.photos.all().count()
-      if count < has_photos:
-        slug = query.slug
-        queryset = queryset.exclude(slug__iexact=slug)
+    if has_photos != 'Any':
+      count = 0
+      for query in queryset:
+        if query.main_photo:
+          count += 1
+        if query.photos:
+          count = count + query.photos.all().count()
+        if count < has_photos:
+          slug = query.slug
+          queryset = queryset.exclude(slug__iexact=slug)
     
     open_house = data['open_house']
     queryset = queryset.filter(open_house__iexact=open_house)
