@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from . import local_settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,18 +10,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-with open(os.path.join(BASE_DIR,'secret.txt')) as f:
-    SECRET_KEY = f.read().strip()
+SECRET_KEY = local_settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'real-estate-reago.herokuapp.com',
-    'localhost',
-    '127.0.0.1'
-]
+ALLOWED_HOSTS = local_settings.ALLOWED_HOSTS
 
 
 # Application definition
@@ -38,9 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise'
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -77,22 +74,14 @@ ASGI_APPLICATION = 'real_estate.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'real_estate',
-        'USER': 'postgres',
-        'PASSWORD': 'KamSan#1',
-        'HOST': 'localhost'
-    }
-}
+DATABASES = local_settings.DATABASES
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'risky.venum@gmail.com'
-EMAIL_HOST_PASSWORD = 'jxdhftgqenredaze'
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = local_settings.EMAIL_BACKEND
+EMAIL_HOST = local_settings.EMAIL_HOST
+EMAIL_PORT = local_settings.EMAIL_PORT
+EMAIL_HOST_USER = local_settings.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = local_settings.EMAIL_HOST_PASSWORD
+EMAIL_USE_TLS = local_settings.EMAIL_USE_TLS
 
 # HTTPS SETTINGS
 SESSION_COOKIE_SECURE = True
